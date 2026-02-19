@@ -4,7 +4,7 @@ ARG BASE_IMAGE=docker.io/library/ubuntu:25.10@sha256:5922638447b1e3ba114332c896a
 # Initial stage which pulls prepares build dependencies and CLI tooling we need for our final image
 # Also used as the image in CI jobs so needs all dependencies
 ####################################################################################################
-FROM docker.io/library/golang:1.25.5@sha256:31c1e53dfc1cc2d269deec9c83f58729fa3c53dc9a576f6426109d1e319e9e9a AS builder
+FROM docker.io/library/golang:1.26.0@sha256:c83e68f3ebb6943a2904fa66348867d108119890a2c6a2e6f07b38d0eb6c25c5 AS builder
 
 WORKDIR /tmp
 
@@ -28,8 +28,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY hack/install.sh hack/tool-versions.sh ./
 COPY hack/installers installers
 
-RUN ./install.sh helm && \
-    INSTALL_PATH=/usr/local/bin ./install.sh kustomize
+RUN ./install.sh helm
 
 ####################################################################################################
 # Argo CD Base - used as the base for both the release and dev argocd images
@@ -60,7 +59,6 @@ COPY hack/gpg-wrapper.sh \
     entrypoint.sh \
     /usr/local/bin/
 COPY --from=builder /usr/local/bin/helm /usr/local/bin/helm
-COPY --from=builder /usr/local/bin/kustomize /usr/local/bin/kustomize
 
 # keep uid_entrypoint.sh for backward compatibility
 RUN ln -s /usr/local/bin/entrypoint.sh /usr/local/bin/uid_entrypoint.sh
@@ -103,7 +101,7 @@ RUN HOST_ARCH=$TARGETARCH NODE_ENV='production' NODE_ONLINE_ENV='online' NODE_OP
 ####################################################################################################
 # Argo CD Build stage which performs the actual build of Argo CD binaries
 ####################################################################################################
-FROM --platform=$BUILDPLATFORM docker.io/library/golang:1.25.5@sha256:31c1e53dfc1cc2d269deec9c83f58729fa3c53dc9a576f6426109d1e319e9e9a AS argocd-build
+FROM --platform=$BUILDPLATFORM docker.io/library/golang:1.26.0@sha256:c83e68f3ebb6943a2904fa66348867d108119890a2c6a2e6f07b38d0eb6c25c5 AS argocd-build
 
 WORKDIR /go/src/github.com/argoproj/argo-cd
 
