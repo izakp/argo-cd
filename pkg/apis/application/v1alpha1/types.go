@@ -324,7 +324,7 @@ type ApplicationSourceHelm struct {
 	// +kubebuilder:pruning:PreserveUnknownFields
 	ValuesObject *runtime.RawExtension `json:"valuesObject,omitempty" protobuf:"bytes,10,opt,name=valuesObject"`
 	// RemoteValues specifies S3 values
-	RemoteValues string `json:"ref,omitempty" protobuf:"bytes,11,opt,name=remoteValues"`
+	RemoteValues string `json:"remoteValues,omitempty" protobuf:"bytes,11,opt,name=remoteValues"`
 }
 
 // HelmParameter is a parameter that's passed to helm template during manifest generation

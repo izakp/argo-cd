@@ -216,9 +216,9 @@ spec:
                                           type: array
                                         passCredentials:
                                           type: boolean
-                                        ref:
-                                          type: string
                                         releaseName:
+                                          type: string
+                                        remoteValues:
                                           type: string
                                         skipCrds:
                                           type: boolean
@@ -398,9 +398,9 @@ spec:
                                             type: array
                                           passCredentials:
                                             type: boolean
-                                          ref:
-                                            type: string
                                           releaseName:
+                                            type: string
+                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -739,9 +739,9 @@ spec:
                                           type: array
                                         passCredentials:
                                           type: boolean
-                                        ref:
-                                          type: string
                                         releaseName:
+                                          type: string
+                                        remoteValues:
                                           type: string
                                         skipCrds:
                                           type: boolean
@@ -921,9 +921,9 @@ spec:
                                             type: array
                                           passCredentials:
                                             type: boolean
-                                          ref:
-                                            type: string
                                           releaseName:
+                                            type: string
+                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -1266,9 +1266,9 @@ spec:
                                           type: array
                                         passCredentials:
                                           type: boolean
-                                        ref:
-                                          type: string
                                         releaseName:
+                                          type: string
+                                        remoteValues:
                                           type: string
                                         skipCrds:
                                           type: boolean
@@ -1448,9 +1448,9 @@ spec:
                                             type: array
                                           passCredentials:
                                             type: boolean
-                                          ref:
-                                            type: string
                                           releaseName:
+                                            type: string
+                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -1773,9 +1773,9 @@ spec:
                                           type: array
                                         passCredentials:
                                           type: boolean
-                                        ref:
-                                          type: string
                                         releaseName:
+                                          type: string
+                                        remoteValues:
                                           type: string
                                         skipCrds:
                                           type: boolean
@@ -1955,9 +1955,9 @@ spec:
                                             type: array
                                           passCredentials:
                                             type: boolean
-                                          ref:
-                                            type: string
                                           releaseName:
+                                            type: string
+                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -2304,9 +2304,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -2486,9 +2486,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -2827,9 +2827,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -3009,9 +3009,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -3354,9 +3354,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -3536,9 +3536,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -3861,9 +3861,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -4043,9 +4043,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -4378,9 +4378,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -4560,9 +4560,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -5075,9 +5075,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -5257,9 +5257,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -5763,9 +5763,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -5945,9 +5945,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -6284,9 +6284,9 @@ spec:
                                           type: array
                                         passCredentials:
                                           type: boolean
-                                        ref:
-                                          type: string
                                         releaseName:
+                                          type: string
+                                        remoteValues:
                                           type: string
                                         skipCrds:
                                           type: boolean
@@ -6466,9 +6466,9 @@ spec:
                                             type: array
                                           passCredentials:
                                             type: boolean
-                                          ref:
-                                            type: string
                                           releaseName:
+                                            type: string
+                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -6815,9 +6815,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -6997,9 +6997,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -7338,9 +7338,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -7520,9 +7520,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -7865,9 +7865,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -8047,9 +8047,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -8372,9 +8372,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -8554,9 +8554,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -8889,9 +8889,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -9071,9 +9071,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -9586,9 +9586,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -9768,9 +9768,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -10274,9 +10274,9 @@ spec:
                                                     type: array
                                                   passCredentials:
                                                     type: boolean
-                                                  ref:
-                                                    type: string
                                                   releaseName:
+                                                    type: string
+                                                  remoteValues:
                                                     type: string
                                                   skipCrds:
                                                     type: boolean
@@ -10456,9 +10456,9 @@ spec:
                                                       type: array
                                                     passCredentials:
                                                       type: boolean
-                                                    ref:
-                                                      type: string
                                                     releaseName:
+                                                      type: string
+                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -10799,9 +10799,9 @@ spec:
                                           type: array
                                         passCredentials:
                                           type: boolean
-                                        ref:
-                                          type: string
                                         releaseName:
+                                          type: string
+                                        remoteValues:
                                           type: string
                                         skipCrds:
                                           type: boolean
@@ -10981,9 +10981,9 @@ spec:
                                             type: array
                                           passCredentials:
                                             type: boolean
-                                          ref:
-                                            type: string
                                           releaseName:
+                                            type: string
+                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -11313,9 +11313,9 @@ spec:
                                           type: array
                                         passCredentials:
                                           type: boolean
-                                        ref:
-                                          type: string
                                         releaseName:
+                                          type: string
+                                        remoteValues:
                                           type: string
                                         skipCrds:
                                           type: boolean
@@ -11495,9 +11495,9 @@ spec:
                                             type: array
                                           passCredentials:
                                             type: boolean
-                                          ref:
-                                            type: string
                                           releaseName:
+                                            type: string
+                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -12010,9 +12010,9 @@ spec:
                                           type: array
                                         passCredentials:
                                           type: boolean
-                                        ref:
-                                          type: string
                                         releaseName:
+                                          type: string
+                                        remoteValues:
                                           type: string
                                         skipCrds:
                                           type: boolean
@@ -12192,9 +12192,9 @@ spec:
                                             type: array
                                           passCredentials:
                                             type: boolean
-                                          ref:
-                                            type: string
                                           releaseName:
+                                            type: string
+                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -12698,9 +12698,9 @@ spec:
                                           type: array
                                         passCredentials:
                                           type: boolean
-                                        ref:
-                                          type: string
                                         releaseName:
+                                          type: string
+                                        remoteValues:
                                           type: string
                                         skipCrds:
                                           type: boolean
@@ -12880,9 +12880,9 @@ spec:
                                             type: array
                                           passCredentials:
                                             type: boolean
-                                          ref:
-                                            type: string
                                           releaseName:
+                                            type: string
+                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -13275,9 +13275,9 @@ spec:
                                 type: array
                               passCredentials:
                                 type: boolean
-                              ref:
-                                type: string
                               releaseName:
+                                type: string
+                              remoteValues:
                                 type: string
                               skipCrds:
                                 type: boolean
@@ -13457,9 +13457,9 @@ spec:
                                   type: array
                                 passCredentials:
                                   type: boolean
-                                ref:
-                                  type: string
                                 releaseName:
+                                  type: string
+                                remoteValues:
                                   type: string
                                 skipCrds:
                                   type: boolean
