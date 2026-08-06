@@ -556,7 +556,7 @@ install-tools-local: install-test-tools-local install-codegen-tools-local instal
 .PHONY: install-test-tools-local
 install-test-tools-local:
 	./hack/install.sh kustomize
-	./hack/install.sh helm-linux
+# 	./hack/install.sh helm-linux
 
 # Installs all tools required for running codegen (Linux packages)
 .PHONY: install-codegen-tools-local
