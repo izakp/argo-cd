@@ -3,11 +3,18 @@ package v1alpha1
 import (
 	"encoding/json"
 	"fmt"
+	"io"
+	"net/url"
+	"os"
 	reflect "reflect"
 	"strings"
 
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	"sigs.k8s.io/yaml"
+
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/s3"
 )
 
 // Set the ValuesObject property to the json representation of the yaml contained in value
@@ -35,6 +42,73 @@ func (h *ApplicationSourceHelm) SetValuesString(value string) error {
 		h.Values = ""
 	}
 	return nil
+}
+
+func (h *ApplicationSourceHelm) RemoteValuesYAML() ([]byte, error) {
+	if h.RemoteValues == "" {
+		return []byte(h.Values), nil
+	}
+
+	b, err := h.GetRemoteValuesFile()
+	if err != nil {
+		return nil, err
+	}
+	return b, nil
+}
+
+func (h *ApplicationSourceHelm) RemoteValuesIsEmpty() (bool, error) {
+	b, err := h.GetRemoteValuesFile()
+	if err != nil {
+		return true, err
+	}
+	return len(b) == 0, nil
+}
+
+func (h *ApplicationSourceHelm) GetRemoteValuesFile() ([]byte, error) {
+	region := os.Getenv("AWS_REGION")
+	if region == "" {
+		region = "us-east-1"
+	}
+
+	s3URI := h.RemoteValues
+	parsed, err := url.Parse(s3URI)
+	if err != nil {
+		return nil, fmt.Errorf("Error fetching remote values: parse S3 URI %q: %w", s3URI, err)
+	}
+	if parsed.Scheme != "s3" {
+		return nil, fmt.Errorf("Error fetching remote values: invalid S3 URI scheme %q, expected s3", parsed.Scheme)
+	}
+
+	bucket := parsed.Host
+	key := strings.TrimPrefix(parsed.Path, "/")
+	if bucket == "" || key == "" {
+		return nil, fmt.Errorf("Error fetching remote values: invalid S3 URI %q, expected s3://bucket/key", s3URI)
+	}
+
+	sess, err := session.NewSession(&aws.Config{
+		Region: aws.String(region),
+	})
+	if err != nil {
+		return nil, fmt.Errorf("Error fetching remote values: create AWS session: %w", err)
+	}
+
+	svc := s3.New(sess)
+
+	out, err := svc.GetObject(&s3.GetObjectInput{
+		Bucket: aws.String(bucket),
+		Key:    aws.String(key),
+	})
+	if err != nil {
+		return nil, fmt.Errorf("Error fetching remote values: get S3 object %s/%s: %w", bucket, key, err)
+	}
+	defer out.Body.Close()
+
+	data, err := io.ReadAll(out.Body)
+	if err != nil {
+		return nil, fmt.Errorf("Error fetching remote values: read S3 object %s/%s: %w", bucket, key, err)
+	}
+
+	return data, nil
 }
 
 func (h *ApplicationSourceHelm) ValuesYAML() []byte {

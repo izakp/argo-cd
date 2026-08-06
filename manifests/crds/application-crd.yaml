@@ -270,6 +270,9 @@ spec:
                             description: PassCredentials pass credentials to all domains
                               (Helm's --pass-credentials)
                             type: boolean
+                          ref:
+                            description: RemoteValues specifies S3 values
+                            type: string
                           releaseName:
                             description: ReleaseName is the Helm release name to use.
                               If omitted it will use the application name
@@ -566,6 +569,9 @@ spec:
                               description: PassCredentials pass credentials to all
                                 domains (Helm's --pass-credentials)
                               type: boolean
+                            ref:
+                              description: RemoteValues specifies S3 values
+                              type: string
                             releaseName:
                               description: ReleaseName is the Helm release name to
                                 use. If omitted it will use the application name
@@ -979,6 +985,9 @@ spec:
                         description: PassCredentials pass credentials to all domains
                           (Helm's --pass-credentials)
                         type: boolean
+                      ref:
+                        description: RemoteValues specifies S3 values
+                        type: string
                       releaseName:
                         description: ReleaseName is the Helm release name to use.
                           If omitted it will use the application name
@@ -1266,6 +1275,9 @@ spec:
                           description: PassCredentials pass credentials to all domains
                             (Helm's --pass-credentials)
                           type: boolean
+                        ref:
+                          description: RemoteValues specifies S3 values
+                          type: string
                         releaseName:
                           description: ReleaseName is the Helm release name to use.
                             If omitted it will use the application name
@@ -1705,6 +1717,9 @@ spec:
                               description: PassCredentials pass credentials to all
                                 domains (Helm's --pass-credentials)
                               type: boolean
+                            ref:
+                              description: RemoteValues specifies S3 values
+                              type: string
                             releaseName:
                               description: ReleaseName is the Helm release name to
                                 use. If omitted it will use the application name
@@ -2005,6 +2020,9 @@ spec:
                                 description: PassCredentials pass credentials to all
                                   domains (Helm's --pass-credentials)
                                 type: boolean
+                              ref:
+                                description: RemoteValues specifies S3 values
+                                type: string
                               releaseName:
                                 description: ReleaseName is the Helm release name
                                   to use. If omitted it will use the application name
@@ -2449,6 +2467,9 @@ spec:
                                     description: PassCredentials pass credentials
                                       to all domains (Helm's --pass-credentials)
                                     type: boolean
+                                  ref:
+                                    description: RemoteValues specifies S3 values
+                                    type: string
                                   releaseName:
                                     description: ReleaseName is the Helm release name
                                       to use. If omitted it will use the application
@@ -2765,6 +2786,9 @@ spec:
                                       description: PassCredentials pass credentials
                                         to all domains (Helm's --pass-credentials)
                                       type: boolean
+                                    ref:
+                                      description: RemoteValues specifies S3 values
+                                      type: string
                                     releaseName:
                                       description: ReleaseName is the Helm release
                                         name to use. If omitted it will use the application
@@ -3200,6 +3224,9 @@ spec:
                                 description: PassCredentials pass credentials to all
                                   domains (Helm's --pass-credentials)
                                 type: boolean
+                              ref:
+                                description: RemoteValues specifies S3 values
+                                type: string
                               releaseName:
                                 description: ReleaseName is the Helm release name
                                   to use. If omitted it will use the application name
@@ -3510,6 +3537,9 @@ spec:
                                   description: PassCredentials pass credentials to
                                     all domains (Helm's --pass-credentials)
                                   type: boolean
+                                ref:
+                                  description: RemoteValues specifies S3 values
+                                  type: string
                                 releaseName:
                                   description: ReleaseName is the Helm release name
                                     to use. If omitted it will use the application
@@ -3964,6 +3994,9 @@ spec:
                                 description: PassCredentials pass credentials to all
                                   domains (Helm's --pass-credentials)
                                 type: boolean
+                              ref:
+                                description: RemoteValues specifies S3 values
+                                type: string
                               releaseName:
                                 description: ReleaseName is the Helm release name
                                   to use. If omitted it will use the application name
@@ -4274,6 +4307,9 @@ spec:
                                   description: PassCredentials pass credentials to
                                     all domains (Helm's --pass-credentials)
                                   type: boolean
+                                ref:
+                                  description: RemoteValues specifies S3 values
+                                  type: string
                                 releaseName:
                                   description: ReleaseName is the Helm release name
                                     to use. If omitted it will use the application

@@ -1130,6 +1130,36 @@ func helmTemplate(appPath string, repoRoot string, env *v1alpha1.Env, q *apiclie
 			templateOpts.Values = append(templateOpts.Values, pathutil.ResolvedFilePath(p))
 		}
 
+		remoteValuesIsEmpty, err := appHelm.RemoteValuesIsEmpty()
+		if err != nil {
+			return nil, err
+		}
+
+		if !remoteValuesIsEmpty {
+			randr, err := uuid.NewRandom()
+			if err != nil {
+				return nil, err
+			}
+			rp := path.Join(os.TempDir(), randr.String())
+			defer func() {
+				// do not remove the directory if it is the source has Ref field set
+				if q.ApplicationSource.Ref == "" {
+					_ = os.RemoveAll(rp)
+				}
+			}()
+
+			remoteValues, err := appHelm.RemoteValuesYAML()
+			if err != nil {
+				return nil, err
+			}
+
+			err = os.WriteFile(rp, remoteValues, 0644)
+			if err != nil {
+				return nil, err
+			}
+			templateOpts.Values = append(templateOpts.Values, pathutil.ResolvedFilePath(rp))
+		}
+
 		for _, p := range appHelm.Parameters {
 			if p.ForceString {
 				templateOpts.SetString[p.Name] = p.Value

@@ -11,6 +11,7 @@ metadata:
     release: argocd
     chart: redis-ha-4.22.3
     app: argocd-redis-ha
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-haproxy-serviceaccount.yaml
 apiVersion: v1
@@ -23,6 +24,7 @@ metadata:
     release: argocd
     chart: redis-ha-4.22.3
     app: argocd-redis-ha
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-ha-configmap.yaml
 apiVersion: v1
@@ -749,6 +751,7 @@ data:
       done
       echo "Failover successful"
     fi
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-ha-health-configmap.yaml
 apiVersion: v1
@@ -798,6 +801,7 @@ data:
       exit 1
     fi
     echo "response=$response"
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-ha-role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -817,6 +821,7 @@ rules:
     - endpoints
   verbs:
     - get
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-haproxy-role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -837,6 +842,7 @@ rules:
     - endpoints
   verbs:
     - get
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-ha-rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -856,6 +862,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
   name: argocd-redis-ha
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-haproxy-rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -876,6 +883,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
   name: argocd-redis-ha-haproxy
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-ha-announce-service.yaml
 apiVersion: v1
@@ -966,6 +974,7 @@ spec:
     release: argocd
     app: redis-ha
     "statefulset.kubernetes.io/pod-name": argocd-redis-ha-server-2
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-ha-service.yaml
 apiVersion: v1
@@ -994,6 +1003,7 @@ spec:
   selector:
     release: argocd
     app: redis-ha
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-haproxy-service.yaml
 apiVersion: v1
@@ -1018,6 +1028,7 @@ spec:
   selector:
     release: argocd
     app: redis-ha-haproxy
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-haproxy-deployment.yaml
 kind: Deployment
@@ -1080,13 +1091,7 @@ spec:
         args:
         - /readonly/haproxy_init.sh
         securityContext: 
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
+          null
         volumeMounts:
         - name: config-volume
           mountPath: /readonly
@@ -1098,13 +1103,7 @@ spec:
         image: haproxy:2.6.14-alpine
         imagePullPolicy: IfNotPresent
         securityContext: 
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
+          null
         livenessProbe:
           httpGet:
             path: /healthz
@@ -1139,6 +1138,7 @@ spec:
       - name: data
         emptyDir:
           {}
+
 ---
 # Source: redis-ha/charts/redis-ha/templates/redis-ha-statefulset.yaml
 apiVersion: apps/v1
@@ -1200,14 +1200,7 @@ spec:
         args:
         - /readonly-config/init.sh
         securityContext: 
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          runAsNonRoot: true
-          runAsUser: 1000
-          seccompProfile:
-            type: RuntimeDefault        
+          null        
         env:
         - name: SENTINEL_ID_0
           value: 3c0d9c0320bb34888c2df5757c718ce6ca992ce6
@@ -1232,14 +1225,7 @@ spec:
         args:
         - /data/conf/redis.conf
         securityContext: 
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          runAsNonRoot: true
-          runAsUser: 1000
-          seccompProfile:
-            type: RuntimeDefault
+          null
         livenessProbe:
           initialDelaySeconds: 30
           periodSeconds: 15
@@ -1289,14 +1275,7 @@ spec:
         args:
           - /data/conf/sentinel.conf
         securityContext: 
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          runAsNonRoot: true
-          runAsUser: 1000
-          seccompProfile:
-            type: RuntimeDefault
+          null
         livenessProbe:
           initialDelaySeconds: 30
           periodSeconds: 15
@@ -1340,14 +1319,7 @@ spec:
         args:
           - /readonly-config/fix-split-brain.sh
         securityContext: 
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          runAsNonRoot: true
-          runAsUser: 1000
-          seccompProfile:
-            type: RuntimeDefault        
+          null        
         env:
         - name: SENTINEL_ID_0
           value: 3c0d9c0320bb34888c2df5757c718ce6ca992ce6
