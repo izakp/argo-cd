@@ -45,36 +45,20 @@ func (h *ApplicationSourceHelm) SetValuesString(value string) error {
 	return nil
 }
 
-func (h *ApplicationSourceHelm) RemoteValuesYAML() ([]byte, error) {
-	if h.RemoteValues == "" {
-		return []byte(h.Values), nil
+func (h *ApplicationSourceHelm) RemoteValuesIsEmpty() bool {
+	if os.Getenv("REMOTE_VALUES") == "" {
+		return true
 	}
-
-	b, err := h.GetRemoteValuesFile()
-	if err != nil {
-		return nil, err
-	}
-	return b, nil
+	return false
 }
 
-func (h *ApplicationSourceHelm) RemoteValuesIsEmpty() (bool, error) {
-	if h.RemoteValues == "" {
-		return true, nil
-	}
-	b, err := h.GetRemoteValuesFile()
-	if err != nil {
-		return true, err
-	}
-	return len(b) == 0, nil
-}
-
-func (h *ApplicationSourceHelm) GetRemoteValuesFile() ([]byte, error) {
+func (h *ApplicationSourceHelm) GetRemoteValues() ([]byte, error) {
 	region := os.Getenv("AWS_REGION")
 	if region == "" {
 		region = "us-east-1"
 	}
 
-	s3URI := h.RemoteValues
+	s3URI := os.Getenv("REMOTE_VALUES")
 	parsed, err := url.Parse(s3URI)
 	if err != nil {
 		return nil, fmt.Errorf("Error fetching remote values: parse S3 URI %q: %w", s3URI, err)
@@ -82,7 +66,7 @@ func (h *ApplicationSourceHelm) GetRemoteValuesFile() ([]byte, error) {
 	if parsed.Scheme != "s3" {
 		return nil, fmt.Errorf("Error fetching remote values: invalid S3 URI scheme %q, expected s3", parsed.Scheme)
 	}
-	log.Infof("parsed remote values file: %s", s3URI)
+	log.Infof("Parsed remote values file: %s", s3URI)
 
 	bucket := parsed.Host
 	key := strings.TrimPrefix(parsed.Path, "/")
@@ -112,7 +96,7 @@ func (h *ApplicationSourceHelm) GetRemoteValuesFile() ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("Error fetching remote values: read S3 object %s/%s: %w", bucket, key, err)
 	}
-	log.Infof("sucessfully fetched remote values file: %s", s3URI)
+	log.Infof("Sucessfully fetched remote values file: %s", s3URI)
 
 	return data, nil
 }

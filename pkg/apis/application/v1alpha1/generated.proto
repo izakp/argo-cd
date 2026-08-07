@@ -453,9 +453,6 @@ message ApplicationSourceHelm {
   // ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.
   // +kubebuilder:pruning:PreserveUnknownFields
   optional k8s.io.apimachinery.pkg.runtime.RawExtension valuesObject = 10;
-
-  // RemoteValues specifies S3 values
-  optional string remoteValues = 11;
 }
 
 // ApplicationSourceJsonnet holds options specific to applications of type Jsonnet

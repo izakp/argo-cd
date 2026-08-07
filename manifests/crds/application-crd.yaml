@@ -274,9 +274,6 @@ spec:
                             description: ReleaseName is the Helm release name to use.
                               If omitted it will use the application name
                             type: string
-                          remoteValues:
-                            description: RemoteValues specifies S3 values
-                            type: string
                           skipCrds:
                             description: SkipCrds skips custom resource definition
                               installation step (Helm's --skip-crds)
@@ -572,9 +569,6 @@ spec:
                             releaseName:
                               description: ReleaseName is the Helm release name to
                                 use. If omitted it will use the application name
-                              type: string
-                            remoteValues:
-                              description: RemoteValues specifies S3 values
                               type: string
                             skipCrds:
                               description: SkipCrds skips custom resource definition
@@ -989,9 +983,6 @@ spec:
                         description: ReleaseName is the Helm release name to use.
                           If omitted it will use the application name
                         type: string
-                      remoteValues:
-                        description: RemoteValues specifies S3 values
-                        type: string
                       skipCrds:
                         description: SkipCrds skips custom resource definition installation
                           step (Helm's --skip-crds)
@@ -1278,9 +1269,6 @@ spec:
                         releaseName:
                           description: ReleaseName is the Helm release name to use.
                             If omitted it will use the application name
-                          type: string
-                        remoteValues:
-                          description: RemoteValues specifies S3 values
                           type: string
                         skipCrds:
                           description: SkipCrds skips custom resource definition installation
@@ -1721,9 +1709,6 @@ spec:
                               description: ReleaseName is the Helm release name to
                                 use. If omitted it will use the application name
                               type: string
-                            remoteValues:
-                              description: RemoteValues specifies S3 values
-                              type: string
                             skipCrds:
                               description: SkipCrds skips custom resource definition
                                 installation step (Helm's --skip-crds)
@@ -2023,9 +2008,6 @@ spec:
                               releaseName:
                                 description: ReleaseName is the Helm release name
                                   to use. If omitted it will use the application name
-                                type: string
-                              remoteValues:
-                                description: RemoteValues specifies S3 values
                                 type: string
                               skipCrds:
                                 description: SkipCrds skips custom resource definition
@@ -2472,9 +2454,6 @@ spec:
                                       to use. If omitted it will use the application
                                       name
                                     type: string
-                                  remoteValues:
-                                    description: RemoteValues specifies S3 values
-                                    type: string
                                   skipCrds:
                                     description: SkipCrds skips custom resource definition
                                       installation step (Helm's --skip-crds)
@@ -2790,9 +2769,6 @@ spec:
                                       description: ReleaseName is the Helm release
                                         name to use. If omitted it will use the application
                                         name
-                                      type: string
-                                    remoteValues:
-                                      description: RemoteValues specifies S3 values
                                       type: string
                                     skipCrds:
                                       description: SkipCrds skips custom resource
@@ -3228,9 +3204,6 @@ spec:
                                 description: ReleaseName is the Helm release name
                                   to use. If omitted it will use the application name
                                 type: string
-                              remoteValues:
-                                description: RemoteValues specifies S3 values
-                                type: string
                               skipCrds:
                                 description: SkipCrds skips custom resource definition
                                   installation step (Helm's --skip-crds)
@@ -3541,9 +3514,6 @@ spec:
                                   description: ReleaseName is the Helm release name
                                     to use. If omitted it will use the application
                                     name
-                                  type: string
-                                remoteValues:
-                                  description: RemoteValues specifies S3 values
                                   type: string
                                 skipCrds:
                                   description: SkipCrds skips custom resource definition
@@ -3998,9 +3968,6 @@ spec:
                                 description: ReleaseName is the Helm release name
                                   to use. If omitted it will use the application name
                                 type: string
-                              remoteValues:
-                                description: RemoteValues specifies S3 values
-                                type: string
                               skipCrds:
                                 description: SkipCrds skips custom resource definition
                                   installation step (Helm's --skip-crds)
@@ -4311,9 +4278,6 @@ spec:
                                   description: ReleaseName is the Helm release name
                                     to use. If omitted it will use the application
                                     name
-                                  type: string
-                                remoteValues:
-                                  description: RemoteValues specifies S3 values
                                   type: string
                                 skipCrds:
                                   description: SkipCrds skips custom resource definition

@@ -218,8 +218,6 @@ spec:
                                           type: boolean
                                         releaseName:
                                           type: string
-                                        remoteValues:
-                                          type: string
                                         skipCrds:
                                           type: boolean
                                         valueFiles:
@@ -399,8 +397,6 @@ spec:
                                           passCredentials:
                                             type: boolean
                                           releaseName:
-                                            type: string
-                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -741,8 +737,6 @@ spec:
                                           type: boolean
                                         releaseName:
                                           type: string
-                                        remoteValues:
-                                          type: string
                                         skipCrds:
                                           type: boolean
                                         valueFiles:
@@ -922,8 +916,6 @@ spec:
                                           passCredentials:
                                             type: boolean
                                           releaseName:
-                                            type: string
-                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -1268,8 +1260,6 @@ spec:
                                           type: boolean
                                         releaseName:
                                           type: string
-                                        remoteValues:
-                                          type: string
                                         skipCrds:
                                           type: boolean
                                         valueFiles:
@@ -1449,8 +1439,6 @@ spec:
                                           passCredentials:
                                             type: boolean
                                           releaseName:
-                                            type: string
-                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -1775,8 +1763,6 @@ spec:
                                           type: boolean
                                         releaseName:
                                           type: string
-                                        remoteValues:
-                                          type: string
                                         skipCrds:
                                           type: boolean
                                         valueFiles:
@@ -1956,8 +1942,6 @@ spec:
                                           passCredentials:
                                             type: boolean
                                           releaseName:
-                                            type: string
-                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -2306,8 +2290,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -2487,8 +2469,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -2829,8 +2809,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -3010,8 +2988,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -3356,8 +3332,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -3537,8 +3511,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -3863,8 +3835,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -4044,8 +4014,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -4380,8 +4348,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -4561,8 +4527,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -5077,8 +5041,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -5258,8 +5220,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -5765,8 +5725,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -5946,8 +5904,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -6286,8 +6242,6 @@ spec:
                                           type: boolean
                                         releaseName:
                                           type: string
-                                        remoteValues:
-                                          type: string
                                         skipCrds:
                                           type: boolean
                                         valueFiles:
@@ -6467,8 +6421,6 @@ spec:
                                           passCredentials:
                                             type: boolean
                                           releaseName:
-                                            type: string
-                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -6817,8 +6769,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -6998,8 +6948,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -7340,8 +7288,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -7521,8 +7467,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -7867,8 +7811,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -8048,8 +7990,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -8374,8 +8314,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -8555,8 +8493,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -8891,8 +8827,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -9072,8 +9006,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -9588,8 +9520,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -9769,8 +9699,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -10276,8 +10204,6 @@ spec:
                                                     type: boolean
                                                   releaseName:
                                                     type: string
-                                                  remoteValues:
-                                                    type: string
                                                   skipCrds:
                                                     type: boolean
                                                   valueFiles:
@@ -10457,8 +10383,6 @@ spec:
                                                     passCredentials:
                                                       type: boolean
                                                     releaseName:
-                                                      type: string
-                                                    remoteValues:
                                                       type: string
                                                     skipCrds:
                                                       type: boolean
@@ -10801,8 +10725,6 @@ spec:
                                           type: boolean
                                         releaseName:
                                           type: string
-                                        remoteValues:
-                                          type: string
                                         skipCrds:
                                           type: boolean
                                         valueFiles:
@@ -10982,8 +10904,6 @@ spec:
                                           passCredentials:
                                             type: boolean
                                           releaseName:
-                                            type: string
-                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -11315,8 +11235,6 @@ spec:
                                           type: boolean
                                         releaseName:
                                           type: string
-                                        remoteValues:
-                                          type: string
                                         skipCrds:
                                           type: boolean
                                         valueFiles:
@@ -11496,8 +11414,6 @@ spec:
                                           passCredentials:
                                             type: boolean
                                           releaseName:
-                                            type: string
-                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -12012,8 +11928,6 @@ spec:
                                           type: boolean
                                         releaseName:
                                           type: string
-                                        remoteValues:
-                                          type: string
                                         skipCrds:
                                           type: boolean
                                         valueFiles:
@@ -12193,8 +12107,6 @@ spec:
                                           passCredentials:
                                             type: boolean
                                           releaseName:
-                                            type: string
-                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -12700,8 +12612,6 @@ spec:
                                           type: boolean
                                         releaseName:
                                           type: string
-                                        remoteValues:
-                                          type: string
                                         skipCrds:
                                           type: boolean
                                         valueFiles:
@@ -12881,8 +12791,6 @@ spec:
                                           passCredentials:
                                             type: boolean
                                           releaseName:
-                                            type: string
-                                          remoteValues:
                                             type: string
                                           skipCrds:
                                             type: boolean
@@ -13277,8 +13185,6 @@ spec:
                                 type: boolean
                               releaseName:
                                 type: string
-                              remoteValues:
-                                type: string
                               skipCrds:
                                 type: boolean
                               valueFiles:
@@ -13458,8 +13364,6 @@ spec:
                                 passCredentials:
                                   type: boolean
                                 releaseName:
-                                  type: string
-                                remoteValues:
                                   type: string
                                 skipCrds:
                                   type: boolean

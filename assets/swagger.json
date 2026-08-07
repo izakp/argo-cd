@@ -6298,10 +6298,6 @@
           "type": "string",
           "title": "ReleaseName is the Helm release name to use. If omitted it will use the application name"
         },
-        "remoteValues": {
-          "type": "string",
-          "title": "RemoteValues specifies S3 values"
-        },
         "skipCrds": {
           "type": "boolean",
           "title": "SkipCrds skips custom resource definition installation step (Helm's --skip-crds)"

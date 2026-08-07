@@ -1130,12 +1130,7 @@ func helmTemplate(appPath string, repoRoot string, env *v1alpha1.Env, q *apiclie
 			templateOpts.Values = append(templateOpts.Values, pathutil.ResolvedFilePath(p))
 		}
 
-		remoteValuesIsEmpty, err := appHelm.RemoteValuesIsEmpty()
-		if err != nil {
-			return nil, err
-		}
-
-		if !remoteValuesIsEmpty {
+		if !appHelm.RemoteValuesIsEmpty() {
 			randr, err := uuid.NewRandom()
 			if err != nil {
 				return nil, err
@@ -1148,7 +1143,7 @@ func helmTemplate(appPath string, repoRoot string, env *v1alpha1.Env, q *apiclie
 				}
 			}()
 
-			remoteValues, err := appHelm.RemoteValuesYAML()
+			remoteValues, err := appHelm.GetRemoteValues()
 			if err != nil {
 				return nil, err
 			}
