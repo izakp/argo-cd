@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/url"
 	"os"
+	log "github.com/sirupsen/logrus"
 	reflect "reflect"
 	"strings"
 
@@ -57,6 +58,9 @@ func (h *ApplicationSourceHelm) RemoteValuesYAML() ([]byte, error) {
 }
 
 func (h *ApplicationSourceHelm) RemoteValuesIsEmpty() (bool, error) {
+	if h.RemoteValues == "" {
+		return true, nil
+	}
 	b, err := h.GetRemoteValuesFile()
 	if err != nil {
 		return true, err
@@ -78,6 +82,7 @@ func (h *ApplicationSourceHelm) GetRemoteValuesFile() ([]byte, error) {
 	if parsed.Scheme != "s3" {
 		return nil, fmt.Errorf("Error fetching remote values: invalid S3 URI scheme %q, expected s3", parsed.Scheme)
 	}
+	log.Infof("parsed remote values file: %s", s3URI)
 
 	bucket := parsed.Host
 	key := strings.TrimPrefix(parsed.Path, "/")
@@ -107,6 +112,7 @@ func (h *ApplicationSourceHelm) GetRemoteValuesFile() ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("Error fetching remote values: read S3 object %s/%s: %w", bucket, key, err)
 	}
+	log.Infof("sucessfully fetched remote values file: %s", s3URI)
 
 	return data, nil
 }
