@@ -203,6 +203,7 @@ export interface ApplicationSourceHelm {
     valueFiles: string[];
     values?: string;
     valuesObject?: any;
+    remoteValues?: string;
     parameters: HelmParameter[];
     fileParameters: HelmFileParameter[];
 }

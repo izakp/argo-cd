@@ -64,6 +64,7 @@ import (
 	pathutil "github.com/argoproj/argo-cd/v2/util/io/path"
 	"github.com/argoproj/argo-cd/v2/util/kustomize"
 	"github.com/argoproj/argo-cd/v2/util/text"
+	"github.com/argoproj/argo-cd/v2/util/remotevalues"
 )
 
 const (
@@ -1130,7 +1131,7 @@ func helmTemplate(appPath string, repoRoot string, env *v1alpha1.Env, q *apiclie
 			templateOpts.Values = append(templateOpts.Values, pathutil.ResolvedFilePath(p))
 		}
 
-		if !appHelm.RemoteValuesIsEmpty() {
+		if !remotevalues.IsEmpty() {
 			randr, err := uuid.NewRandom()
 			if err != nil {
 				return nil, err
@@ -1143,12 +1144,12 @@ func helmTemplate(appPath string, repoRoot string, env *v1alpha1.Env, q *apiclie
 				}
 			}()
 
-			remoteValues, err := appHelm.GetRemoteValues()
+			remoteValuesBytes, err := remotevalues.Get()
 			if err != nil {
 				return nil, err
 			}
 
-			err = os.WriteFile(rp, remoteValues, 0644)
+			err = os.WriteFile(rp, remoteValuesBytes, 0644)
 			if err != nil {
 				return nil, err
 			}
@@ -2037,6 +2038,15 @@ func populateHelmAppDetails(res *apiclient.RepoAppDetailsResponse, appPath strin
 	if err != nil {
 		return fmt.Errorf("failed to resolve value files: %w", err)
 	}
+
+	if !remotevalues.IsEmpty() {
+		remoteValuesBytes, err := remotevalues.Get()
+		if err != nil {
+			return err
+		}
+		res.Helm.RemoteValues = string(remoteValuesBytes)
+	}
+
 	params, err := h.GetParameters(resolvedSelectedValueFiles, appPath, repoRoot)
 	if err != nil {
 		return err

@@ -133,6 +133,8 @@ export const ApplicationParameters = (props: {
     let attributes: EditablePanelItem[] = [];
     const isValuesObject = source?.helm?.valuesObject;
     const helmValues = isValuesObject ? jsYaml.safeDump(source.helm.valuesObject) : source?.helm?.values;
+    const isRemoteValues = source?.helm?.remoteValues;
+    const helmRemoteValues = isRemoteValues ? jsYaml.safeDump(source.helm.remoteValues) : source?.helm?.values;
     const [appParamsDeletedState, setAppParamsDeletedState] = React.useState([]);
 
     if (props.details.type === 'Kustomize' && props.details.kustomize) {
@@ -236,6 +238,14 @@ export const ApplicationParameters = (props: {
                     </div>
                 );
             }
+        });
+        attributes.push({
+            title: 'REMOTE VALUES',
+            view: source.helm && (
+                <Expandable>
+                    <pre>{helmRemoteValues}</pre>
+                </Expandable>
+            )
         });
         const paramsByName = new Map<string, models.HelmParameter>();
         (props.details.helm.parameters || []).forEach(param => paramsByName.set(param.name, param));
