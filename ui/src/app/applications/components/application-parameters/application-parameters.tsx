@@ -241,7 +241,7 @@ export const ApplicationParameters = (props: {
             title: 'REMOTE VALUES',
             view: source.helm && (
                 <Expandable>
-                    <pre>{props.details.remoteValues}</pre>
+                    <pre>{props.details.helm.remoteValues}</pre>
                 </Expandable>
             )
         });
