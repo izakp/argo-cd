@@ -12,14 +12,14 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 )
 
-func IsEmpty() bool {
+func IsEmpty(appName string) bool {
 	if os.Getenv("REMOTE_VALUES") == "" {
 		return true
 	}
 	return false
 }
 
-func Get() ([]byte, error) {
+func Get(appName string) ([]byte, error) {
 	region := os.Getenv("AWS_REGION")
 	if region == "" {
 		region = "us-east-1"
@@ -61,9 +61,40 @@ func Get() ([]byte, error) {
 
 	data, err := io.ReadAll(out.Body)
 	if err != nil {
-		return nil, fmt.Errorf("Error fetching remote values: read S3 object %s/%s: %w", bucket, key, err)
+		return nil, fmt.Errorf("Error reading remote values: read S3 object %s/%s: %w", bucket, key, err)
 	}
-	log.Infof("Sucessfully fetched remote values file: %s", s3URI)
+	log.Infof("Sucessfully fetched remote values file: %s", key)
 
+	// Try to get app-specific S3 values file with the same key name on {appName} nested path
+
+	var appSuccess bool
+	var appData []byte
+	appKey := fmt.Sprintf("%s/%s", appName, key)
+
+	appOut, err := svc.GetObject(&s3.GetObjectInput{
+		Bucket: aws.String(bucket),
+		Key:    aws.String(appKey),
+	})
+	if err != nil {
+		log.Warnf("Error fetching remote values (no S3 object): %s/%s: %w", bucket, appKey, err)
+		appSuccess = false
+	}
+	defer appOut.Body.Close()
+
+	if appSuccess {
+		appData, err = io.ReadAll(appOut.Body)
+		if err != nil {
+			log.Warnf("Error reading remote values S3 object: %s/%s: %w", bucket, appKey, err)
+			appSuccess = false
+		} else {
+			log.Infof("Sucessfully fetched remote values file: %s", appKey)
+			appSuccess = true
+		}
+	}
+
+	if appSuccess {
+		allData := append(data, appData...)
+		return allData, nil
+	}
 	return data, nil
 }

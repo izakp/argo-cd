@@ -1131,7 +1131,7 @@ func helmTemplate(appPath string, repoRoot string, env *v1alpha1.Env, q *apiclie
 			templateOpts.Values = append(templateOpts.Values, pathutil.ResolvedFilePath(p))
 		}
 
-		if !remotevalues.IsEmpty() {
+		if !remotevalues.IsEmpty(appName) {
 			randr, err := uuid.NewRandom()
 			if err != nil {
 				return nil, err
@@ -1144,7 +1144,7 @@ func helmTemplate(appPath string, repoRoot string, env *v1alpha1.Env, q *apiclie
 				}
 			}()
 
-			remoteValuesBytes, err := remotevalues.Get()
+			remoteValuesBytes, err := remotevalues.Get(appName)
 			if err != nil {
 				return nil, err
 			}
@@ -2039,8 +2039,9 @@ func populateHelmAppDetails(res *apiclient.RepoAppDetailsResponse, appPath strin
 		return fmt.Errorf("failed to resolve value files: %w", err)
 	}
 
-	if !remotevalues.IsEmpty() {
-		remoteValuesBytes, err := remotevalues.Get()
+	appName, _ := argo.ParseInstanceName(q.AppName, "")
+	if !remotevalues.IsEmpty(appName) {
+		remoteValuesBytes, err := remotevalues.Get(appName)
 		if err != nil {
 			return err
 		}
