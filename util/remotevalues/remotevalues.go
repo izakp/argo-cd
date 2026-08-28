@@ -95,6 +95,8 @@ func Get(appName string) ([]byte, error) {
 			log.Warnf("Could not fetch remote values (no S3 object): s3://%s/%s: %w", bucket, appKey, err)
 	    }
 		appSuccess = false
+	} else {
+		appSuccess = true
 	}
 
 	if appSuccess {
