@@ -45,7 +45,7 @@ func Get(appName string) ([]byte, error) {
 		Region: aws.String(region),
 	})
 	if err != nil {
-		return nil, fmt.Errorf("Error fetching remote values: create AWS session: %w", err)
+		return nil, fmt.Errorf("Error fetching remote values: create AWS session: %w", err.Message())
 	}
 
 	svc := s3.New(sess)
@@ -55,13 +55,13 @@ func Get(appName string) ([]byte, error) {
 		Key:    aws.String(key),
 	})
 	if err != nil {
-		return nil, fmt.Errorf("Error fetching remote values: get S3 object %s/%s: %w", bucket, key, err)
+		return nil, fmt.Errorf("Error fetching remote values: get S3 object s3://%s/%s: %w", bucket, key, err.Message())
 	}
 	defer out.Body.Close()
 
 	data, err := io.ReadAll(out.Body)
 	if err != nil {
-		return nil, fmt.Errorf("Error reading remote values: read S3 object %s/%s: %w", bucket, key, err)
+		return nil, fmt.Errorf("Error reading remote values: read S3 object s3://%s/%s: %w", bucket, key, err.Message())
 	}
 	log.Infof("Sucessfully fetched remote values file: %s", key)
 
@@ -76,15 +76,15 @@ func Get(appName string) ([]byte, error) {
 		Key:    aws.String(appKey),
 	})
 	if err != nil {
-		log.Warnf("Error fetching remote values (no S3 object): %s/%s: %w", bucket, appKey, err)
+		log.Warnf("Error fetching remote values (no S3 object): s3://%s/%s: %w", bucket, appKey, err.Message())
 		appSuccess = false
 	}
-	defer appOut.Body.Close()
 
 	if appSuccess {
 		appData, err = io.ReadAll(appOut.Body)
+		defer appOut.Body.Close()
 		if err != nil {
-			log.Warnf("Error reading remote values S3 object: %s/%s: %w", bucket, appKey, err)
+			log.Warnf("Error reading remote values S3 object: s3://%s/%s: %w", bucket, appKey, err.Message())
 			appSuccess = false
 		} else {
 			log.Infof("Sucessfully fetched remote values file: %s", appKey)
